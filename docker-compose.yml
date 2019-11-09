@@ -19,3 +19,9 @@ services:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  dokuwiki:
+    image: 'bitnami/dokuwiki:0'
+    ports:
+      - 8000:443
+    volumes:
+      - './data/dokuwiki:/bitnami'
