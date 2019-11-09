@@ -24,4 +24,4 @@ services:
     ports:
       - 8000:443
     volumes:
-      - './data/dokuwiki:/bitnami'
+      - './data/dokuwiki:/bitnami/dokuwiki'
