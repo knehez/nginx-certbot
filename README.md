@@ -34,5 +34,14 @@ application.
 
         docker-compose logs nginx
 
+8: How to configure Jenkins
+        
+        /run.sh
+        put: --prefix=/jenkins
+
+        To run docker images:
+        chown jenkins:jenkins /var/run/docker.sock
+
+
 ## License
 All code in this repository is licensed under the terms of the `MIT License`. For further information please refer to the `LICENSE` file.
