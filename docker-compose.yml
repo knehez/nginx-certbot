@@ -25,3 +25,11 @@ services:
       - 8000:443
     volumes:
       - './data/dokuwiki:/bitnami/dokuwiki'
+  jenkins:
+    image: 'bitnami/jenkins:latest'
+    ports:
+      - 8001:8443
+    volumes:
+      - './data/jenkins:/bitnami'
+    environment:
+      - JENKINS_OPTS="--prefix=/jenkins"
