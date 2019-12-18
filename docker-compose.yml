@@ -33,4 +33,5 @@ services:
       - './data/jenkins:/bitnami/jenkins'
     environment:
       JAVA_OPTS: -Duser.timezone=CET
+      JENKINS_ARGS: --prefix=/jenkins
       JENKINS_OPTS: --prefix=/jenkins --httpPort=-1 --httpsPort=8083 --httpsKeyStore=/bitnami/jenkins/keystore.jks --httpsKeyStorePassword=Password_1      
