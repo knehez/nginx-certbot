@@ -30,6 +30,7 @@ services:
     ports:
       - 8001:8443
     volumes:
-      - './data/jenkins:/bitnami'
+      - './data/jenkins:/bitnami/jenkins'
     environment:
-      - JENKINS_OPTS="--prefix=/jenkins"
+      JAVA_OPTS: -Duser.timezone=CET
+      JENKINS_OPTS: --prefix=/jenkins --httpPort=-1 --httpsPort=8083 --httpsKeyStore=/bitnami/jenkins/keystore.jks --httpsKeyStorePassword=Password_1      

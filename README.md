@@ -26,8 +26,13 @@ application.
 
         docker-compose up
 
-## Got questions?
-Feel free to post questions in the comment section of the [accompanying guide](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
+6. Reload nginx after configuration chages
+
+        docker-compose exec nginx nginx -s reload
+
+7. How to watch nginx log?
+
+        docker-compose logs nginx
 
 ## License
 All code in this repository is licensed under the terms of the `MIT License`. For further information please refer to the `LICENSE` file.
