@@ -28,7 +28,7 @@ services:
   jenkins:
     image: 'bitnami/jenkins:latest'
     ports:
-      - 8001:8443
+      - 8080:8080
     volumes:
       - './data/jenkins:/bitnami/jenkins'
     environment:
