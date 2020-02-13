@@ -37,3 +37,34 @@ services:
       JAVA_OPTS: -Duser.timezone=CET
       JENKINS_ARGS: --prefix=/jenkins
       JENKINS_OPTS: --prefix=/jenkins     
+  mysql:
+    image: mariadb
+    container_name: mariadb
+    volumes:
+      - ./data/nextcloud/db:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_PASSWORD=
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    restart: unless-stopped
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    depends_on:
+      - mysql
+    ports:
+      - 8001:443      
+    links:
+      - mysql      
+    volumes:
+      - ./data/nextcloud/app/html:/var/www/html
+      - ./data/nextcloud/app/config:/var/www/html/config
+      - ./data/nextcloud/app/custom_apps:/var/www/html/custom_apps
+      - ./data/nextcloud/app/data:/var/www/html/data
+      - ./data/nextcloud/app/themes:/var/www/html/themes
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - VIRTUAL_HOST=kivi.iit.uni-miskolc.hu
+    restart: unless-stopped
