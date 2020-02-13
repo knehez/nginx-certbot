@@ -35,8 +35,7 @@ services:
       - '/usr/bin/docker:/usr/bin/docker'
     environment:
       JAVA_OPTS: -Duser.timezone=CET
-      JENKINS_ARGS: --prefix=/jenkins
-      JENKINS_OPTS: --prefix=/jenkins     
+      JENKINS_ARGS: --prefix=/jenkins   
   mysql:
     image: mariadb
     container_name: mariadb
